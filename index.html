@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TBXM CLI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero-card">
+      <div class="logo-shadow"></div>
+      <img class="logo" src=".assets/logo.png" alt="Logo TBXM" />
+      <h1>TBXM CLI</h1>
+      <p>Installez l’outil en un clin d’œil pour gérer votre projet TBXM.</p>
+      <div class="command-card">
+        <div class="command-text" id="install-command">npm i tbxm-cli</div>
+        <button type="button" id="copy-button">Copier</button>
+      </div>
+      <p class="small-note">Collez cette commande dans votre terminal pour installer le CLI.</p>
+    </section>
+  </main>
+  <script>
+    const button = document.getElementById('copy-button');
+    const command = document.getElementById('install-command').textContent;
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(command);
+        button.textContent = 'Copié !';
+        setTimeout(() => button.textContent = 'Copier', 1500);
+      } catch (err) {
+        button.textContent = 'Erreur';
+      }
+    });
+  </script>
+</body>
+</html>
